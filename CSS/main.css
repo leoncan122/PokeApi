@@ -1,0 +1,16 @@
+body {
+    background: linear-gradient(-90deg, rgb(197, 23, 23), white);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+body div:nth-child(2) {
+    align-self: end;
+    background-color: green;
+}
+
+body div:last-child {
+    
+    background-color: green;
+} 
