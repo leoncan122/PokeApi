@@ -1,16 +1,42 @@
 body {
     background: linear-gradient(-90deg, rgb(197, 23, 23), white);
     display: flex;
+    flex-direction: row-reverse;
     align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+body > div {
+    height: 600%;
 }
 
-body div:nth-child(2) {
-    align-self: end;
-    background-color: green;
-}
-
-body div:last-child {
+/* Buscador */
+body div:first-child {
+    width: 300%;
+    height: 100px;
+    display: flex;
+    flex-direction: row-reverse;
     
-    background-color: green;
+}
+#new-search, #searchBtn {
+    height: 20%;
+    align-self: center;
+    margin-left: 5px;
+}
+ 
+
+/*contenido*/
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65%;
+}
+
+
+#PokeImg {
+    width: 250px;
+    height: 200px;
+    background-color: rgb(29, 21, 21);
+    border-radius: 5px;
 } 
