@@ -11,7 +11,7 @@ var evolucionImg = document.querySelector('#poke-evolucion')
 var moves = document.querySelector('#poke-moves')
 var weight = document.querySelector('#poke-weight')
 var height = document.querySelector('#poke-height')
-var type = document.querySelector('#poke-type')
+var typeField = document.querySelector('#poke-type')
 var descriptionField = document.querySelector('#poke-description')
 
 // Poke-Finder
@@ -30,6 +30,7 @@ searchPokemonBtn.addEventListener('click', (event) => {
     fetch(url)
     .then(response => response.json())
     .then( pokemon => {
+        console.log(pokemon)
         //change values
         // setTimeout([pokemon.sprites].forEach(img => {
         //     index = 0
@@ -40,18 +41,23 @@ searchPokemonBtn.addEventListener('click', (event) => {
         nameAndId.innerHTML = `${pokemon.id} ${pokemon.name}`   
         weight.innerHTML = `weigth: <strong>0,${pokemon.weight} kg.</strong>`
         height.innerHTML = `height: ${pokemon.height}0 cm`
+        const abilitiesURL = pokemon.abilities.map(ability => fetch( ability.ability.url))
+        pokemon.types.forEach( type => {
+            typeField.innerHTML = type.type.name
+        } )
+        return Promise.all(abilitiesURL)
         
     })
-    fetch(`https://pokeapi.co/api/v2/type/${newSearch.value}`)
-    .then(response => response.json())
-    .then(tipo => {
-        type.innerHTML = tipo.name
+    .then( (responses) => {
+        var promesas = responses.map( response => response.json())
+        return Promise.all(promesas)
     })
-    fetch(`https://pokeapi.co/api/v2/characteristic/${newSearch.value}`)
-    .then(response => response.json())
-    .then(char => {
-        var descriptionSpanish = char.descriptions.find(descrip => descrip.language.name == "es")
-        
-        descriptionField.innerHTML = descriptionSpanish.description
+    .then( jsons => {
+        jsons.forEach(( ability) => {
+            
+            descriptionField.innerText = ability.flavor_text_entries[0].flavor_text
+            
+        })
     })
+  
 })

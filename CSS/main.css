@@ -26,14 +26,20 @@ body div:first-child {
     align-self: center;
     margin-left: 5px;
 }
- 
+#searchBtn {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    border-radius: 50%;
+}
 
 /*contenido*/
 .content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 60%;
+    width: 56%;
+
 }
 .element-type {
     justify-content: flex-end;
@@ -49,6 +55,8 @@ body div:first-child {
      
     border-bottom: 30px solid rgba(118, 198, 235, 0.822);
     border-right: 30px solid rgb(56, 91, 114);
+
+    z-index: 0;
 } 
 .description {
     width: 90%;
@@ -56,7 +64,10 @@ body div:first-child {
     align-items: flex-start;
     justify-content: space-between;
 }
-
+#poke-description {
+    border: 2px white solid;
+    padding: 2%;
+}
 /* sider */
 .right-sider {
     display: flex;
@@ -73,4 +84,5 @@ body div:first-child {
     border-bottom: 30px solid rgb(197, 23, 23);
     height: 0;
     line-height: 50px;
+    z-index: 1
 } 
