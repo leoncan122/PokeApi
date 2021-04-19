@@ -1,6 +1,6 @@
 body {
     font-family: 'VT323', monospace;
-    font-size: 1.2em;
+    font-size: 20px;
     background: linear-gradient(90deg, rgb(197, 23, 23), white);
     display: flex;
     flex-direction: row-reverse;
@@ -10,19 +10,20 @@ body {
 }
 
 /* Buscador */
-body div:first-child {
+body .navy-search {
     width: 100%;
-    margin: 1% 0 1% 0;
+    margin: 3% 7% 1% 0;
     display: flex;
     flex-direction: row-reverse;
     
 }
 #new-search {
+    font-size: 1.5rem;
     color: white;
     background-color: black;
 } 
 #new-search, #searchBtn {
-    height: 20%;
+    
     align-self: center;
     margin-left: 5px;
 }
@@ -38,19 +39,32 @@ body div:first-child {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 56%;
+    width: 54%;
+
+    /* background-color: rgba(0, 140, 255, 0.527);
+    border-left: 20px solid black;
+    border-top: 20px solid white;
+    border-right: 20px solid; */
 
 }
-.element-type {
+div .element-type {
+    color: white;
     justify-content: flex-end;
-   
+    margin-right: 239px;
+    margin-bottom: auto;
+    font-size: 1.3em;
+    border-bottom: 40px solid rgb(46, 42, 42);
+    border-right: 40px solid transparent;
+    height: 0;
+    width: 150px;
+    line-height: 0;
 } 
 
 #pokeImg {
-    width: 300px;
-    height: 250px;
+    width: 400px;
+    height: 300px;
     border-radius: 5px;
-    margin: 5% 0 5% 0;
+    margin: 0 0 5% 0;
     background-color: rgb(46, 42, 42);
      
     border-bottom: 30px solid rgba(118, 198, 235, 0.822);
@@ -64,6 +78,9 @@ body div:first-child {
     align-items: flex-start;
     justify-content: space-between;
 }
+#poke-name-id {
+    margin: 20px 2px;
+}
 #poke-description {
     border: 2px white solid;
     padding: 2%;
@@ -76,7 +93,7 @@ body div:first-child {
 } 
 .right-sider > p {
     color: white;
-    font-size: 15px;
+    
     padding: 10px;
     font-weight: bold;
     
