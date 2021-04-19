@@ -21,6 +21,8 @@ var newSearch = document.querySelector('#new-search')
 //botones
 var searchPokemonBtn = document.querySelector('#searchBtn')
 
+let intervalId = -1
+
 searchPokemonBtn.addEventListener('click', (event) => {
     event.preventDefault();
     
@@ -38,17 +40,19 @@ searchPokemonBtn.addEventListener('click', (event) => {
             let index = 0
             let imagesURL = Object.values(pokemon.sprites)
             let images = [imagesURL[6],imagesURL[2]]
-
+            
             pokeImage.src = images[0]
             
-            let id = setInterval(() => {
+            intervalId = setInterval(() => {
                pokeImage.src = images[index]
-               index == 1 ? index = 0 : index++   
+               index == 1 ? index = 0 : index++  
             },1000)
              
         }
         pokeImage.src = ''
+        clearInterval(intervalId)
         changeImage()
+        
        
         nameAndId.innerHTML = `${pokemon.id} ${pokemon.name}`   
         weight.innerHTML = `weigth: <strong>0,${pokemon.weight} kg.</strong>`
