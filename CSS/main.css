@@ -59,6 +59,10 @@ div .element-type {
     width: 150px;
     line-height: 0;
 } 
+div .element-type::after {
+    content: "";
+    
+}
 
 #pokeImg {
     width: 400px;
